@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [Header("Required References")]
     [Tooltip("The player shooter script that fires projectiles.")]
     public Shooter playerShooter;
+    public Health playerHealth;
+    public List<GameObject> disableWhileDead;
 
     private CharacterController controller;
     private InputManager inputManager;
@@ -68,6 +70,23 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (playerHealth.currentHealth <= 0)
+        {
+            foreach (GameObject inGameObject in disableWhileDead)
+            {
+                inGameObject.SetActive(false);
+            }
+            return;
+        }
+        else
+        {
+            foreach (GameObject inGameObject in disableWhileDead)
+            {
+                inGameObject.SetActive(true);
+            }
+        }
+
+
         ProcessMovement();
         ProcessRotation();
     }
