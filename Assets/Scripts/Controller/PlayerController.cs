@@ -17,12 +17,17 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The strength of gravity")]
     public float gravity = 9.81f;
 
-    [Header("Required Preferences")]
+    [Header("Jump timing")]
+    public float jumpTimeLeniency = 0.1f;
+    public float timeToStopBeingLenient = 0;
+
+    [Header("Required References")]
     [Tooltip("The player shooter script that fires projectiles.")]
     public Shooter playerShooter;
 
     private CharacterController controller;
     private InputManager inputManager;
+    bool DoubleJumpAvailable=false;
 
 
     /// <summary>
@@ -79,6 +84,8 @@ public class PlayerController : MonoBehaviour
         // Handle the control of the player while it is on the ground
         if (controller.isGrounded)
         {
+            DoubleJumpAvailable = true;
+            timeToStopBeingLenient = Time.time + jumpTimeLeniency;
             // Set the movement direction to be the recieved input, set y to 0 since we are on the ground
             moveDirection = new Vector3(leftRightInput, 0, forwardBackwardInput);
 
@@ -95,10 +102,25 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = new Vector3(leftRightInput * moveSpeed, moveDirection.y, forwardBackwardInput * moveSpeed);
             moveDirection = transform.TransformDirection(moveDirection);
+            if (jumpPressed&&Time.time<timeToStopBeingLenient)
+            {
+                moveDirection.y = jumpPower;
+            }
+           else if (jumpPressed && DoubleJumpAvailable)
+            {
+                moveDirection.y = jumpPower;
+                DoubleJumpAvailable = false;
+            }
         }
 
 
         moveDirection.y -= gravity*Time.deltaTime;
+
+        if (controller.isGrounded&&moveDirection.y<0)
+        {
+            moveDirection.y = -0.3f;
+        }
+
         controller.Move(moveDirection * Time.deltaTime);
 
     }
