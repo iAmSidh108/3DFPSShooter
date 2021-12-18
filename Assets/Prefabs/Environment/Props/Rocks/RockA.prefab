@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1287518987776442114
 Transform:
@@ -60,6 +60,9 @@ MonoBehaviour:
   eventsOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6568130315228790373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +70,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1287518987776442114}
     m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -80,6 +87,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -90,14 +101,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -117,7 +120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66da3c9a916e0734e878562c7b0d257d, type: 3}
