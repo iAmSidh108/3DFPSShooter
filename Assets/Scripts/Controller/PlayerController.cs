@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessMovement();
+        ProcessRotation();
     }
 
     Vector3 moveDirection;
@@ -90,10 +91,24 @@ public class PlayerController : MonoBehaviour
                 moveDirection.y = jumpPower;
             }
         }
+        else
+        {
+            moveDirection = new Vector3(leftRightInput * moveSpeed, moveDirection.y, forwardBackwardInput * moveSpeed);
+            moveDirection = transform.TransformDirection(moveDirection);
+        }
+
+
         moveDirection.y -= gravity*Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
     }
 
+    void ProcessRotation()
+    {
+        float horizontalLookInput = inputManager.horizontalLookAxis;
+        Vector3 playerRotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(new Vector3(playerRotation.x, playerRotation.y + horizontalLookInput * lookSpeed * Time.deltaTime
+            , playerRotation.z));
+    }
 
 }
