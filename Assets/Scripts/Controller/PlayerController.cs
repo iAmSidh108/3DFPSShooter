@@ -7,6 +7,18 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    [Header("Settings")]
+    [Tooltip("The speed at which player moves")]
+    public float moveSpeed = 2f;
+    [Tooltip("The speed at which player looks around(Calculated in degrees)")]
+    public float lookSpeed = 60f;
+    [Tooltip("The power with which player jumps")]
+    public float jumpPower=8f;
+    [Tooltip("The strength of gravity")]
+    public float gravity = 9.81f;
+
+    [Header("Required Preferences")]
+    [Tooltip("The player shooter script that fires projectiles.")]
     public Shooter playerShooter;
 
     /// <summary>
