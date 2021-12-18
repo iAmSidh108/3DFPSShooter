@@ -1,2 +1,2 @@
 # 3DFPSShooter
- A Simple FPS Shooter.
+ A Simple 3D FPS Shooter.
