@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The player shooter script that fires projectiles.")]
     public Shooter playerShooter;
 
+    private CharacterController controller;
+    private InputManager inputManager;
+
+
     /// <summary>
     /// Description:
     /// Standard Unity function called once before the first Update call
@@ -31,7 +35,22 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        SetupCharacterController();
+        SetUpInputManager();
+    }
 
+    private void SetupCharacterController()
+    {
+        controller = GetComponent<CharacterController>();
+        if (controller == null)
+        {
+            Debug.LogError("The player controller script does not have a character controller on the same game object!");
+        }
+    }
+
+    void SetUpInputManager()
+    {
+        inputManager = InputManager.instance;
     }
 
     /// <summary>
@@ -44,6 +63,37 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        ProcessMovement();
+    }
+
+    Vector3 moveDirection;
+
+    void ProcessMovement()
+    {
+        // Get the input from the input manager
+        float leftRightInput = inputManager.horizontalMoveAxis;
+        float forwardBackwardInput = inputManager.verticalMoveAxis;
+        bool jumpPressed = inputManager.jumpPressed;
+
+        // Handle the control of the player while it is on the ground
+        if (controller.isGrounded)
+        {
+            // Set the movement direction to be the recieved input, set y to 0 since we are on the ground
+            moveDirection = new Vector3(leftRightInput, 0, forwardBackwardInput);
+
+            // Set the move direction in relation to the transform
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection = moveDirection * moveSpeed;
+
+            if (jumpPressed)
+            {
+                moveDirection.y = jumpPower;
+            }
+        }
+        moveDirection.y -= gravity*Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
     }
+
+
 }
