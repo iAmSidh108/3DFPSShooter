@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 408822078632255843}
   - component: {fileID: 2307099136455670090}
   - component: {fileID: 3363947283760332669}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: MeleeSwing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 5344201165240082450}
   - component: {fileID: 3872924443984927461}
   - component: {fileID: 1420941988157335598}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: GroundMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ MonoBehaviour:
   attackBooleanName: 
   hitWithLineOfSight:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 576
   agent: {fileID: 3642792238051749166}
   stopDistance: 0
   lineOfSightToStop: 1
@@ -301,6 +301,12 @@ MonoBehaviour:
   deathEffect: {fileID: 1515603650488286217, guid: b1d61b018291e5043b0be5ee26c12b18, type: 3}
   hitEffect: {fileID: 1986892457192645033, guid: b4b5f92d032abe64b84d7639d84610e8, type: 3}
   ragdollHandler: {fileID: 1420941988157335598}
+  eventsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5344201165240082450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +366,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3642792238051749162}
     m_Modifications:
     - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -372,6 +382,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -381,14 +395,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1064313495132078844, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
@@ -409,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079815569087820015, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f221efe237c89c742ba45c7c6cdaf8e4, type: 3}

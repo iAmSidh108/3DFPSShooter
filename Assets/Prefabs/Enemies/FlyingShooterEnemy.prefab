@@ -93,9 +93,12 @@ MonoBehaviour:
   idleAnimationName: Idle
   useAmmo: 0
   ammunitionID: 0
+  mustReload: 0
   magazineSize: 1
   roundsLoaded: 0
   reloadTime: 1
+  weaponImage: {fileID: 0}
+  ammoImage: {fileID: 0}
 --- !u!1 &4699839180939646023
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +115,7 @@ GameObject:
   - component: {fileID: -3219269683412516719}
   - component: {fileID: 2725768548962742277}
   - component: {fileID: 621647721172439227}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: FlyingShooterEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +183,7 @@ MonoBehaviour:
   attackBooleanName: attack
   hitWithLineOfSight:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 576
   stopDistance: 20
   stopBehavior: 1
 --- !u!114 &4699839180939646047
@@ -241,6 +244,12 @@ MonoBehaviour:
   deathEffect: {fileID: 1515603650488286217, guid: b1d61b018291e5043b0be5ee26c12b18, type: 3}
   hitEffect: {fileID: 1986892457192645033, guid: b4b5f92d032abe64b84d7639d84610e8, type: 3}
   ragdollHandler: {fileID: 2725768548962742277}
+  eventsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2725768548962742277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +750,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -753,6 +766,10 @@ PrefabInstance:
       value: 0.236
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -762,14 +779,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
